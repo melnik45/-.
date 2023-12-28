@@ -1,23 +1,32 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34321.82
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication9", "PythonApplication9\PythonApplication9.pyproj", "{682C43A3-75B0-4216-91DD-0206E1909D18}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{682C43A3-75B0-4216-91DD-0206E1909D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{682C43A3-75B0-4216-91DD-0206E1909D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {89F03CBE-AA4B-4018-8E6B-9994F0501D1A}
-	EndGlobalSection
-EndGlobal
+# singleton_pattern.py
+
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls)
+        return cls._instance
+
+def main():
+    singleton1 = Singleton()
+    singleton2 = Singleton()
+
+    print(singleton1 == singleton2)  # Output: True
+
+if __name__ == "__main__":
+    main()
+# remove_file.py
+
+import os
+
+def remove_file(file_path):
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        print(f"File '{file_path}' removed successfully.")
+    else:
+        print(f"File '{file_path}' not found.")
+
+if __name__ == "__main__":
+    file_to_remove = "singleton_pattern.py"
+    remove_file(file_to_remove)
